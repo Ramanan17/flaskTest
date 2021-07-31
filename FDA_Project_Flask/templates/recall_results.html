@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FDA Recall</title>
+</head>
+<body>
+
+<h2>Welcome to the FDA Recall API Project. <br> </h2>
+<p class="lead mb-5">Recalls are an appropriate alternative method for removing or correcting marketed consumer products, their labeling, and/or promotional literature that violate the laws administered by the Food and Drug Administration (FDA). Recalls afford equal consumer protection but generally are more efficient and timely than formal administrative or civil actions, especially when the product has been widely distributed.
+
+Manufacturers and/or distributors may initiate a recall at any time to fulfill their responsibility to protect the public health from products that present a risk of injury or gross deception, or are otherwise defective. Firms may also initiate a recall following notification of a problem by FDA or a state agency, in response to a formal request by FDA, or as ordered by FDA.</p>
+
+<h4>Final Project: Find Out What Food Product Have Been Recalled Based on a State</h4>
+<p class="lead mb-5">By using FDA Recall API, you can obtain information about all the products that have been selected for recall.</p>
+<p class="lead mb-5">Disclaimer: Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <a href="https://open.fda.gov/terms/">Terms of Service</a>
+</p>
+    <h1>Recall Results</h1>
+
+        <h3>Status</h3>
+        <em>On-going:</em> Recall which is currently in progress<br>
+        <em>Completed:</em> The firm has retrieved products that<br>
+                         could reasonably be recovered.<br>
+        <em>Terminated:</em> FDA has determined all reasonable<br>
+                       efforts have been performed to<br>
+                            remove recalled products.<br>
+        <em>Pending:</em> Products that have been determined to<br>
+                    be recalls, but they have not been<br>
+                     classified.
+
+    <table border="5">
+        <tr>
+            <th>Report Date</th><th>Product Description</th><th>Distributed Locations</th><th>Reason for Recall</th>
+            <th>Status</th>
+        </tr>
+
+        {% for i in recall['results'] %}
+            <tr>
+                <td>{{i["report_date"]}}</td>
+                <td>{{i["product_description"]}}</td>
+                <td>{{i["distribution_pattern"]}}</td>
+                <td>{{i["reason_for_recall"]}}</td>
+                <td>{{i["reason_for_recall"]}}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
+<a href="{{url_for('search')}}">New Search</a>
+</body>
+</html>

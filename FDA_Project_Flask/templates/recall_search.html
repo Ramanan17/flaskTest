@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FDA Recall</title>
+</head>
+<body>
+<h3>Final Project</h3>
+<br>
+<p class="lead mb-5">Disclaimer: Do not rely on openFDA to make decisions regarding medical care. Always speak to your health provider about the risks and benefits of FDA-regulated products. We may limit or otherwise restrict your access to the API in line with our <a href="https://open.fda.gov/terms/">Terms of Service</a></p>
+<br>
+
+
+    <h1 class="center_header">Search for Recalls</h1>
+
+    <div class="search_form_style">
+        <form method="POST" action="{{url_for('search')}}">
+{#            {{form.csrf}}#}
+{#            {{form.hidden_tag()}}#}
+
+            <label>State:</label><br>
+            {{form.state_input}}
+
+            <br><br>
+
+            <label>Report Start Date (Format: YYYYMMDD):</label><br>
+            {{form.startdate_input}}
+            <br><br>
+
+            <label>Report End Date (Format: YYYYMMDD):</label><br>
+            {{form.enddate_input}}
+            <br><br>
+
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+</body>
+</html>
